@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  image-server:
+    links:
+      - mariadb:mariadb
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      m2m_network:
+        ipv4_address: ${API_STATIC_IP}
+    container_name: 'api'
+    volumes:
+      - ./../../mnt/hdd1/m2m_public:/app/public
+      - ./../../error_logs:/root/.npm/_logs/
+    restart: always
+
+networks:
+  m2m_network:
+    external:
+      name: m2m_service
