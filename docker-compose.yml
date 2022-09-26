@@ -8,7 +8,7 @@ services:
     networks:
       m2m_network:
         ipv4_address: ${API_STATIC_IP}
-    container_name: 'api'
+    container_name: 'image-server'
     volumes:
       - ./../../mnt/hdd1/m2m_public:/app/public
       - ./../../error_logs:/root/.npm/_logs/
