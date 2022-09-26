@@ -2,8 +2,6 @@ version: '3.7'
 
 services:
   image-server:
-    links:
-      - mariadb:mariadb
     build:
       context: .
       dockerfile: Dockerfile
